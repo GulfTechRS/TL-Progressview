@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Daily Live Photo</title>
   <style>
     * {
@@ -16,16 +16,35 @@
       justify-content: center;
       align-items: center;
       background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
       overflow: hidden;
+      padding: 20px;
+      text-align: center;
     }
 
-    h1 {
-      font-size: 2em;
-      font-weight: 500;
-      margin-bottom: 10px;
+    header {
+      margin-bottom: 40px;
+      user-select: none;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      margin: 0;
       color: #e0e0e0;
+      text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+    }
+
+    header h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 8px 0 0;
+      color: #ff4d4d;
+      font-style: italic;
+      letter-spacing: 1px;
+      text-shadow: 0 0 5px rgba(255, 77, 77, 0.8);
     }
 
     .loader {
@@ -60,6 +79,7 @@
       transition: opacity 1s ease, transform 0.5s ease;
       opacity: 0;
       transform: scale(0.98);
+      margin-bottom: 20px;
     }
 
     #dailyPhoto.show {
@@ -69,7 +89,6 @@
     }
 
     #refreshBtn {
-      margin-top: 25px;
       padding: 12px 28px;
       background: linear-gradient(135deg, #ff1a1a, #cc0000);
       color: #fff;
@@ -93,16 +112,23 @@
       bottom: 10px;
       font-size: 0.9em;
       color: rgba(255, 255, 255, 0.2);
+      user-select: none;
+      width: 100%;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <h1>📷 Live Daily View</h1>
+  <header>
+    <h1>Tonino Lamborghini - Live Daily View</h1>
+    <h2>By Gulf Land Property Developers</h2>
+  </header>
+
   <div class="loader" id="spinner"></div>
   <div id="loadingText">Loading today's view...</div>
 
-  <img id="dailyPhoto" alt="Today's Photo">
+  <img id="dailyPhoto" alt="Today's Photo" />
   <button id="refreshBtn" onclick="loadPhoto()">🔄 Refresh</button>
 
   <footer>Lamborghini Daily Feed</footer>
