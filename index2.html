@@ -106,24 +106,42 @@ body::before {
       box-shadow: 0 6px 16px rgba(255, 0, 0, 0.4);
     }
 
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.9em;
-      color: rgba(255, 255, 255, 0.4);
-      text-align: center;
-      width: 100%;
-      user-select: none;
-      z-index: 2;
-    }
+footer {
+  position: fixed;
+  bottom: 20px; /* floating above the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent black box */
+  padding: 12px 28px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px); /* gives glassy embossed look */
+  z-index: 2;
+}
 
-    footer small {
-      display: block;
-      margin-top: 4px;
-      font-size: 0.7em;
-      color: rgba(255, 255, 255, 0.2);
-      font-weight: 300;
-    }
+footer small {
+  display: block;
+  font-size: 0.75em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+    
   </style>
 </head>
 <body>
@@ -138,6 +156,7 @@ body::before {
     Lamborghini Daily Feed
     <small>by Gulf Land Property Developers</small>
   </footer>
+
 
   <script>
     const options = { day: '2-digit', month: 'long', year: 'numeric' };
@@ -180,6 +199,7 @@ body::before {
   </script>
 </body>
 </html>
+
 
 
 
