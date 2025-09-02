@@ -23,24 +23,24 @@
       z-index: 1;
     }
 
-    /* Elegant silhouette background image */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-image: url('tl2.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-      opacity: 0.45;
-      filter: brightness(0.15) saturate(150%) sepia(1) hue-rotate(350deg) saturate(350%) brightness(0.85);
-      pointer-events: none;
-      user-select: none;
-      z-index: 0;
-      mix-blend-mode: multiply;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('tl2.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.65;
+  filter: brightness(0.5) saturate(180%) sepia(0.8) hue-rotate(350deg);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
+
 
     .loader {
       border: 6px solid rgba(255, 255, 255, 0.1);
@@ -180,4 +180,5 @@
   </script>
 </body>
 </html>
+
 
