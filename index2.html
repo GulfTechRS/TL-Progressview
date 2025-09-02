@@ -34,11 +34,12 @@
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
-      opacity: 0.05;
+      opacity: 0.12; /* subtle but visible */
       pointer-events: none;
       user-select: none;
       z-index: 0;
       filter: blur(2px);
+      mix-blend-mode: soft-light; /* smooth luxury blending */
     }
 
     .loader {
@@ -111,6 +112,7 @@
       font-size: 0.9em;
       color: rgba(255, 255, 255, 0.2);
       z-index: 1;
+      user-select: none;
     }
   </style>
 </head>
