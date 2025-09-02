@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Daily Live Photo</title>
   <style>
     * {
@@ -10,7 +11,7 @@
 
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -18,33 +19,37 @@
       background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
-      overflow: hidden;
+      overflow-x: hidden;
       padding: 20px;
       text-align: center;
     }
 
     header {
-      margin-bottom: 40px;
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: clamp(20px, 4vw, 40px);
       user-select: none;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700;
       letter-spacing: 1.5px;
       margin: 0;
       color: #e0e0e0;
       text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+      line-height: 1.2;
     }
 
     header h2 {
-      font-size: 1.25rem;
+      font-size: clamp(1rem, 2vw, 1.5rem);
       font-weight: 400;
       margin: 8px 0 0;
       color: #ff4d4d;
       font-style: italic;
       letter-spacing: 1px;
       text-shadow: 0 0 5px rgba(255, 77, 77, 0.8);
+      line-height: 1.3;
     }
 
     .loader {
@@ -63,15 +68,20 @@
     }
 
     #loadingText {
-      font-size: 1.1em;
+      font-size: clamp(1em, 2vw, 1.2em);
       margin-bottom: 30px;
       color: #ccc;
       text-shadow: 0 0 6px rgba(255, 50, 50, 0.5);
+      max-width: 600px;
+      width: 100%;
+      user-select: none;
     }
 
     #dailyPhoto {
-      max-width: 90%;
-      max-height: 80vh;
+      max-width: 90vw;
+      max-height: 70vh;
+      width: auto;
+      height: auto;
       border-radius: 14px;
       border: 2px solid rgba(255, 0, 0, 0.3);
       box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
@@ -80,6 +90,7 @@
       opacity: 0;
       transform: scale(0.98);
       margin-bottom: 20px;
+      object-fit: contain;
     }
 
     #dailyPhoto.show {
@@ -93,12 +104,14 @@
       background: linear-gradient(135deg, #ff1a1a, #cc0000);
       color: #fff;
       font-weight: bold;
-      font-size: 1em;
+      font-size: clamp(1em, 2vw, 1.1em);
       border: none;
       border-radius: 8px;
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       transition: all 0.3s ease;
+      max-width: 200px;
+      width: 100%;
     }
 
     #refreshBtn:hover {
@@ -108,13 +121,23 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.9em;
+      margin-top: auto;
+      font-size: clamp(0.8em, 1vw, 0.9em);
       color: rgba(255, 255, 255, 0.2);
       user-select: none;
       width: 100%;
       text-align: center;
+      padding: 10px 0;
+    }
+
+    @media (max-width: 480px) {
+      #dailyPhoto {
+        max-height: 60vh;
+      }
+
+      header {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
