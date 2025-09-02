@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Daily Live Photo</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,400&family=Segoe+UI&display=swap');
+
     * {
       box-sizing: border-box;
     }
@@ -31,24 +33,33 @@
       user-select: none;
     }
 
+    /* Elegant Serif heading */
     header h1 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 3px;
       margin: 0;
-      color: #e0e0e0;
-      text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
-      line-height: 1.2;
+      color: #b30000;
+      background: linear-gradient(45deg, #ff4d4d, #8b0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow:
+        0 0 8px rgba(255, 0, 0, 0.85),
+        0 3px 6px rgba(0, 0, 0, 0.5);
+      line-height: 1.1;
     }
 
     header h2 {
-      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
       font-weight: 400;
-      margin: 8px 0 0;
-      color: #ff4d4d;
+      margin: 10px 0 0;
+      color: #d94f4f;
       font-style: italic;
-      letter-spacing: 1px;
-      text-shadow: 0 0 5px rgba(255, 77, 77, 0.8);
+      letter-spacing: 2px;
+      text-shadow:
+        0 0 6px rgba(217, 79, 79, 0.9);
       line-height: 1.3;
     }
 
