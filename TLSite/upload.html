@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Guide – Daily Photo</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(192,0,0,0.6);
+      max-width: 400px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #ff1a1a;
+    }
+    .filename {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #c00000;
+      text-shadow: 0 0 8px rgba(255,0,0,0.4);
+    }
+    .instructions {
+      font-size: 0.95em;
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+    a {
+      display: inline-block;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #c00000, #ff1a1a);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      background: linear-gradient(135deg, #ff1a1a, #c00000);
+      box-shadow: 0 6px 18px rgba(192,0,0,0.6);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>📤 Upload Today’s Photo</h1>
+    <div class="instructions">
+      Save your photo using this exact filename:
+    </div>
+    <div class="filename" id="filename"></div>
+    <div class="instructions">
+      Then go to GitHub → <strong>photos/</strong> folder → click <em>“Add file → Upload files”</em> and drop it there.
+    </div>
+    <a href="https://github.com/YOUR-USERNAME/YOUR-REPO-NAME/upload/main/photos" target="_blank">
+      🚀 Upload on GitHub
+    </a>
+  </div>
+
+  <script>
+    // Format date like 02September2025
+    const options = { day: '2-digit', month: 'long', year: 'numeric' };
+    const today = new Date().toLocaleDateString('en-GB', options).replace(/ /g, '');
+    document.getElementById("filename").textContent = today + ".jpg";
+  </script>
+</body>
+</html>
