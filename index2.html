@@ -2,28 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Daily Live Photo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tonino Lamborghini - Live Daily View</title>
   <style>
+    /* Reset and base */
     * {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+      position: relative;
+      overflow: hidden;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
-      overflow-x: hidden;
-      padding: 20px;
       text-align: center;
-      background: radial-gradient(circle at center, #1a0000, #0a0000 70%);
-      position: relative;
+      padding: 20px;
     }
 
+    /* Background silhouette with elegant colored tint */
     body::before {
       content: "";
       position: fixed;
@@ -34,14 +36,15 @@
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
-      opacity: 0.12; /* subtle but visible */
+      opacity: 0.25;
+      filter: brightness(0) saturate(100%) sepia(1) hue-rotate(350deg) saturate(400%) brightness(0.6);
       pointer-events: none;
       user-select: none;
       z-index: 0;
-      filter: blur(2px);
-      mix-blend-mode: soft-light; /* smooth luxury blending */
+      mix-blend-mode: multiply;
     }
 
+    /* Loader Spinner */
     .loader {
       border: 6px solid rgba(255, 255, 255, 0.1);
       border-top: 6px solid #ff2d2d;
@@ -58,6 +61,7 @@
       100% { transform: rotate(360deg); }
     }
 
+    /* Loading text */
     #loadingText {
       font-size: 1.1em;
       margin-bottom: 30px;
@@ -66,6 +70,7 @@
       z-index: 1;
     }
 
+    /* Photo styling */
     #dailyPhoto {
       max-width: 90%;
       max-height: 80vh;
@@ -77,6 +82,8 @@
       opacity: 0;
       transform: scale(0.98);
       z-index: 1;
+      background-color: #111;
+      padding: 4px;
     }
 
     #dailyPhoto.show {
@@ -85,6 +92,7 @@
       transform: scale(1);
     }
 
+    /* Refresh button */
     #refreshBtn {
       margin-top: 25px;
       padding: 12px 28px;
@@ -106,29 +114,47 @@
       box-shadow: 0 6px 16px rgba(255, 0, 0, 0.4);
     }
 
+    /* Footer with subtext */
     footer {
       position: absolute;
       bottom: 10px;
       font-size: 0.9em;
       color: rgba(255, 255, 255, 0.2);
       z-index: 1;
+      width: 100%;
+      text-align: center;
       user-select: none;
+    }
+    footer .sub-footer {
+      font-size: 0.65em;
+      color: rgba(255, 255, 255, 0.1);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      #dailyPhoto {
+        max-height: 60vh;
+      }
+      #refreshBtn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+      }
     }
   </style>
 </head>
 <body>
-
   <div class="loader" id="spinner"></div>
   <div id="loadingText">Loading today's view...</div>
 
   <img id="dailyPhoto" alt="Today's Photo" />
   <button id="refreshBtn" onclick="loadPhoto()">🔄 Refresh</button>
 
- <footer>
-  Lamborghini Daily Feed
-  <div class="sub-footer">by Gulf Land Property Developers</div>
-</footer>
-
+  <footer>
+    Lamborghini Daily Feed
+    <div class="sub-footer">by Gulf Land Property Developers</div>
+  </footer>
 
   <script>
     const options = { day: '2-digit', month: 'long', year: 'numeric' };
@@ -157,10 +183,10 @@
       };
     }
 
-    // Load initially
+    // Initial load
     loadPhoto();
 
-    // Check every 2 mins until photo loads
+    // Auto-check every 2 minutes until photo is available
     const interval = setInterval(() => {
       if (!photo.classList.contains("show")) {
         loadPhoto();
@@ -169,7 +195,5 @@
       }
     }, 120000);
   </script>
-
 </body>
 </html>
-
